@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Meld</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="theme-color" content="#44056e">
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Cabin" />
+        {% block head_scripts %}
+        {% endblock %}
+    </head>
+    <body class="mx-auto leading-normal font-sans text-gray-700 antialiased bg-gray-100">
+        <div class="container mx-auto">
+        {% meld_scripts %}
+
+        {% block content %}
+
+        {% meld 'person' %}
+        {% meld 'counter' %}
+        {% meld 'search' %}
+
+        {% endblock %}
+        </div>
+
+        {% block page_scripts %}
+        {% endblock %}
+
+        <style>
+        </style>
+    </body>
+</html>
+
