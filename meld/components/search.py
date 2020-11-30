@@ -1,5 +1,6 @@
 from flask_meld.component import Component
 
+
 class Search(Component):
     state = ""
 
@@ -59,6 +60,7 @@ class Search(Component):
     def clear_states(self):
         self.state = ""
 
+    @property
     def states(self):
         if not self.state:
             return []

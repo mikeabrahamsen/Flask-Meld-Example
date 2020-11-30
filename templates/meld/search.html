@@ -1,7 +1,7 @@
-<!-- /templates/meld/search.html -->
 <div>
     <label>Search typeahead</label><br />
     <input type="text" meld:model="state" placeholder="State name" id="state-name"></input>
+    <button meld:click="clear_states">Clear result</button>
 
     <p>
         Matching states:
@@ -13,7 +13,6 @@
         {% endfor %}
         </ul>
 
-        <button meld:click="clear_states">Clear result</button>
         {% else %}
         n/a
         {% endif %}
