@@ -3,6 +3,7 @@ from flask_meld.component import Component
 
 class Search(Component):
     state = ""
+    selected = 1
 
     ALL_STATES = (
         "Alabama",
@@ -60,9 +61,19 @@ class Search(Component):
     def clear_states(self):
         self.state = ""
 
+    def select(self, value):
+        self.state = str(value)
+
+    def select_next(self):
+        self.selected += 1
+
+    def select_previous(self):
+        self.selected -= 1
+
     @property
     def states(self):
         if not self.state:
             return []
 
-        return [s for s in self.ALL_STATES if s.lower().startswith(self.state.lower())]
+        filtered_states = [s for s in self.ALL_STATES if s.lower().startswith(self.state.lower())]
+        return filtered_states

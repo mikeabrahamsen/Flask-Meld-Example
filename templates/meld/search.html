@@ -1,15 +1,16 @@
 <div>
     <label>Search typeahead</label><br />
-    <input type="text" meld:model="state" placeholder="State name" id="state-name"></input>
-    <button meld:click="clear_states">Clear result</button>
-
+    <input type="text" 
+           meld:model="state" 
+           meld:keydown.ArrowDown ="select_next" 
+           meld:keydown.ArrowUp ="select_previous" placeholder="State name" id="state-name"></input>
     <p>
-        Matching states:
-
         {% if states %}
-        <ul>
+    <button meld:click="clear_states">Clear result</button>
+        <ul class="bg-white">
         {% for s in states %}
-        <li>{{ s }}</li>
+        <li meld:key="{{s}}" meld:click="select({{ s }})" class="p-4
+            {% if selected == loop.index %}bg-purple-500 text-white{% endif %}" >{{ s }}</li>
         {% endfor %}
         </ul>
 
