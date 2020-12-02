@@ -1,2 +1,2 @@
 Flask
--e ../Flask-Meld
+Flask-Meld
