@@ -2,20 +2,23 @@
     <label>Search typeahead</label><br />
     <input type="text" 
            meld:model="state" 
-           meld:keydown.ArrowDown ="select_next" 
-           meld:keydown.ArrowUp ="select_previous" placeholder="State name" id="state-name"></input>
+           meld:keydown.ArrowDown = "select_next" 
+           meld:keydown.ArrowUp = "select_previous" 
+           meld:keydown.Enter = "select_by_index({{selected}})" 
+           placeholder="Start typing a state name" id="state-name"></input>
+        <button meld:click="clear_states" class="ml-2 px-1 border shadow">Clear result</button>
     <p>
+    {% if not state in states %}
         {% if states %}
-    <button meld:click="clear_states">Clear result</button>
         <ul class="bg-white">
-        {% for s in states %}
-        <li meld:key="{{s}}" meld:click="select({{ s }})" class="p-4
-            {% if selected == loop.index %}bg-purple-500 text-white{% endif %}" >{{ s }}</li>
-        {% endfor %}
+            {% for s in states %}
+            <li meld:key="{{s}}" 
+                meld:click="select({{ s }})" 
+                class="p-4
+                    {% if selected == loop.index %}bg-purple-500 text-white{% endif %}" >{{ s }}</li>
+            {% endfor %}
         </ul>
-
-        {% else %}
-        n/a
         {% endif %}
+    {% endif %}
     </p>
 </div>

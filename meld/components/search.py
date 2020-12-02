@@ -64,11 +64,16 @@ class Search(Component):
     def select(self, value):
         self.state = str(value)
 
+    def select_by_index(self, value):
+        self.state = self.states[int(value)-1]
+
     def select_next(self):
-        self.selected += 1
+        if self.selected < len(self.states):
+            self.selected += 1
 
     def select_previous(self):
-        self.selected -= 1
+        if self.selected > 1:
+            self.selected -= 1
 
     @property
     def states(self):
