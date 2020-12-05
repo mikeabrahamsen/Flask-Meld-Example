@@ -1,5 +1,7 @@
-<div>
-    <input meld:model="name">
+<div class="py-4">
+    <div>Simple databinding</div>
+    <input placeholder="What is your name?" 
+    meld:model="name">
     <div meld:model="class" class="{{class}}"></div>
     {% if name %}
     <div>Hello {{name}}!</div>
