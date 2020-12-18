@@ -1,9 +1,8 @@
 <div class="py-4">
     <div>Simple databinding</div>
-    <input placeholder="What is your name?" 
-    meld:model="name">
-    <div meld:model="class" class="{{class}}"></div>
-    {% if name %}
-    <div>Hello {{name}}!</div>
+    <input placeholder="What is your first name?" meld:model="first_name">
+    <input placeholder="What is your last name?" meld:model="last_name">
+    {% if first_name or last_name %}
+    <div>Hello {{first_name}}{% if last_name %} {{last_name}}{% endif %}!</div>
     {% endif %}
 </div>
