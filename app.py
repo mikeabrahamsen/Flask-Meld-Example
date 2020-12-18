@@ -11,5 +11,11 @@ socketio = app.socketio
 def index():
     return render_template("base.html")
 
+
+@app.route('/forms')
+def form_validation():
+    return render_template("form_validation.html")
+
+
 if __name__ == '__main__':
     socketio.run(app)
