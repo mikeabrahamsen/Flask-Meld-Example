@@ -1,35 +1,40 @@
 <div class="flex py-4">
     <div class=""> 
         <div class="text-2xl">Form Validation</div>
+        <!-- <form meld:submit.prevent="submit"> -->
+        <form method="post">
             {{ form.csrf_token }}
             {{ form.email.label }}
-        <div class="py-2">
-            {{ form.email(class_="p-2") }}
-            <span class="px-2 text-red-800"> {{ errors.email | first }} </span>
-        </div>
+            <div class="py-2">
+                {{ form.email(class_="p-2") }}
+                <span class="px-2 text-red-800"> {{ errors.email | first }} </span>
+            </div>
             {{ form.password.label }}
-        <div class="py-2">
-            {{ form.password(class_="p-2")}}
-            <span class="px-2 text-red-800"> {{ errors.password | first }} </span>
-        </div>
+            <div class="py-2">
+                {{ form.password(class_="p-2")}}
+                <span class="px-2 text-red-800"> {{ errors.password | first }} </span>
+            </div>
             {{ form.password_confirm.label }}
-        <div class="py-2">
-            {{ form.password_confirm(class_="p-2") }}
-            <span class="px-2 text-red-800"> {{ errors.password_confirm | first }} </span>
-        </div>
-        <div>
-            <button class="px-1 border shadow" meld:click="register">Submit</button>
-        </div>
+            <div class="py-2">
+                {{ form.password_confirm(class_="p-2") }}
+                <span class="px-2 text-red-800"> {{ errors.password_confirm | first }} </span>
+            </div>
+            <div>
+                <button type="submit" class="px-1 border shadow">Submit</button>
+                {{ form.submit }}
+                
+            </div>
+        </form>
     </div>
 
     <div>
-    {% if registrations %}
-    <span class="text-xl">Current Registrations</span>
-    <ul>
-        {% for reg in registrations if reg %}
-        <li>{{ reg }}</li>
-        {% endfor %}
-    </ul>
-    {% endif %}
+        {% if registrations %}
+        <span class="text-xl">Current Registrations</span>
+        <ul>
+            {% for reg in registrations if reg %}
+            <li>{{ reg }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
     </div>
 </div>
