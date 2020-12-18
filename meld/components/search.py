@@ -5,7 +5,7 @@ class Search(Component):
     state = ""
     selected = 1
 
-    ALL_STATES = (
+    _ALL_STATES = (
         "Alabama",
         "Alaska",
         "Arizona",
@@ -80,5 +80,5 @@ class Search(Component):
         if not self.state:
             return []
 
-        filtered_states = [s for s in self.ALL_STATES if s.lower().startswith(self.state.lower())]
+        filtered_states = [s for s in self._ALL_STATES if s.lower().startswith(self.state.lower())]
         return filtered_states

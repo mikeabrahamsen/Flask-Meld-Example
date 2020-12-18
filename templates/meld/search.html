@@ -11,7 +11,7 @@
     <p>
     {% if not state in states %}
         {% if states %}
-        <ul class="bg-white">
+        <ul class="bg-white w-full">
             {% for s in states %}
             <li meld:key="{{s}}" 
                 meld:click="select({{ s }})" 
