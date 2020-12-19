@@ -1,0 +1,25 @@
+<div class="py-4">
+    <div class="text-2xl">Registration Form</div>
+    <form method="post">
+        {{ form.email.label }}
+        <div class="py-2">
+            {{ form.email(class_="p-2") }}
+            <div class="px-2 text-red-800"> {{ errors.email | first }} </div>
+        </div>
+        {{ form.password.label }}
+        <div class="py-2">
+            {{ form.password(class_="p-2")}}
+            {% for error in errors.password %}
+            <div class="px-2 text-red-800"> {{ error }} </div>
+            {% endfor %}
+        </div>
+        {{ form.password_confirm.label }}
+        <div class="py-2">
+            {{ form.password_confirm(class_="p-2") }}
+            <div class="px-2 text-red-800"> {{ errors.password_confirm | first }} </div>
+        </div>
+        <div>
+            {{ form.submit(class_="p-2 border shadow") }}
+        </div>
+    </form>
+</div>
