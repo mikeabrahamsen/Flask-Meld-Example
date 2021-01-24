@@ -1,4 +1,4 @@
 Flask>=0.9
-Flask-Meld>=0.1.0
+Flask-Meld>=0.4.8
 Flask-WTF==0.14.3
 email-validator==1.1.2
